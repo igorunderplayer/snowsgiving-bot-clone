@@ -14,6 +14,7 @@ module.exports = {
 
     const embed = {
       title: 'Campeões de bola de neve',
+      description: '( Acertos / Erros / Acertado? )',
       color: 0x5865F2,
       fields: []
     }
@@ -23,7 +24,7 @@ module.exports = {
 
       embed.fields.push({
         name: `${i + 1} | ${user.username}#${user.discriminator}`,
-        value: `\( ${u.hits} \/ ${u.fails} \/ ${u.hitted} \)`
+        value: `( ${u.hits} / ${u.fails} / ${u.hitted} )`
       })
 
       if(i == data.length -1) {

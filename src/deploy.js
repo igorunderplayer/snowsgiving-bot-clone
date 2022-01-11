@@ -5,7 +5,6 @@ const client = Eris(process.env['TOKEN'], {
   intents: 0
 })
 
-
 client.connect()
 
 
