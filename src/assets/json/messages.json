@@ -1,0 +1,14 @@
+{
+  "success":[
+    "Thunk! {user} foi atingido por uma bola de neve... você vai levar isso deitado?",
+    "Toquem as trombetas da guerra (doot doot)—o acerto de contas começou. {user} foi atingido por uma bola de neve!",
+    "{user} nem estava prestando atenção no chat... e ele foi atingido por uma bola de neve de qualquer maneira! Ei {user} — use /collect, então /throw para recuperá-los!",
+    "Pow, bem no beijo! {user} foi atingido por uma bola de neve. (google translate, tbm n entendi)"
+  ],
+  "fail": [
+    "{user} é muito rápido! Você errou!",
+    "Você joga uma bola de neve com toda a sua força, só para ela cair a poucos centímetros de seus pés. Você errou! Talvez você devesse trabalhar um pouco a força do braço...",
+    "Um bico de sapato bloqueou seu tiro - malditos bicos de sapato fedidos. Você errou!",
+    "Whoosh! Você errou, mas sempre há outra bola de neve. /collect mais um pouco e mostre a eles para quê!"
+  ]
+}
