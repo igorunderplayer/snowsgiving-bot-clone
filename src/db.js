@@ -2,8 +2,7 @@ const SimplDb = require('simpl.db')
 
 const db = SimplDb({
   collectionsFolder: './collections',
-  dataFile: './src/database/db.json',
-  autoSave: true
+  dataFile: './database/db.json'
 })
 
 const Guilds = db.createCollection('guilds')

@@ -1,4 +1,2 @@
-src/database/db.json
-node_modules
-collections
 .env
+node_modules
