@@ -1,16 +1,31 @@
+require('dotenv/config')
 const Eris = require('eris')
 
 const client = Eris(process.env['TOKEN'], {
-  intents: 0
+  intents: 1,
+  restMode: true,
+  messageLimit: 5
 })
 
-const { collect } = require('./commands')
+const commands = require('./commands')
 
-client.on('interactionCreate', (interaction) => {
+client.on('ready', () => {
+  console.log('Ready!')
+})
+
+client.on('interactionCreate', async (interaction) => {
   if(interaction.type == 2) {
-    if(interaction.data.name == 'collect') {
-      collect.run(interaction)
+    const cmd = commands[interaction.data.name]
+
+    if(cmd) {
+      try {
+        await cmd.run(client, interaction)
+      } catch (err) {
+        console.error(err)
+      }
     }
   }
 })
+
+client.connect()
 
