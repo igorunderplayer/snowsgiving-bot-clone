@@ -1,0 +1,16 @@
+{
+  "name": "snowsigiving-bot-clone",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "author": "igorunderplayer <igorschug6@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node src/index.js",
+    "deploy": "node deploy.js"
+  },
+  "dependencies": {
+    "dotenv": "^11.0.0",
+    "eris": "^0.16.1",
+    "simpl.db": "^2.4.0"
+  }
+}
