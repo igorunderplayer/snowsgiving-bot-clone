@@ -19,19 +19,18 @@ module.exports = {
       fields: []
     }
 
-    data.forEach(async (u, i) => {
+    for await (const u of data) {
       const user = await client.getRESTUser(u.id)
+      const index = data.indexOf(u)
 
       embed.fields.push({
-        name: `${i + 1} | ${user.username}#${user.discriminator}`,
+        name: `${index + 1} | ${user.username}#${user.discriminator}`,
         value: `( ${u.hits} / ${u.fails} / ${u.hitted} )`
       })
+    }
 
-      if(i == data.length -1) {
-        interaction.createMessage({
-          embed
-        })
-      }
+    interaction.createMessage({
+      embed
     })
   }
 }
