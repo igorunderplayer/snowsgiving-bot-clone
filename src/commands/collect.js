@@ -31,19 +31,19 @@ module.exports = {
       user = guild.users[interaction.member.id]
     }
 
-    if (user.timeout != null && WARMUP - (Date.now() - user.timeout) > 0) {
-      const time = (Date.now() + WARMUP - (Date.now() - timeout) / 1000).toFixed()
+    if (!!user.timeout && WARMUP - (Date.now() - user.timeout) > 0) {
+      const time = ~~((Date.now() + WARMUP - (Date.now() - user.timeout)) / 1000)
 
       return interaction.createMessage({
         embed: {
-          description: `penos (ready <t:${time}:R>)`,
+          description: `Você foi atingido por uma bola de neve, por favor, se aqueça primeiro. (pronto em <t:${time}:R>)`,
           color: 0xe67e22
         }
       })
-    } else if (user.cooldown != null && COOLDOWN - (Date.now() - user.cooldown) > 0) {
+    } else if (!!user.cooldown && COOLDOWN - (Date.now() - user.cooldown) > 0) {
       return interaction.createMessage({
         embed: {
-          description: `cool`,
+          description: 'Você já pegou toda a neve! Deixe cair por cerca de 30 segundos, então você poderá fazer outra bola de neve.',
           color: 0xe67e22
         }
       })
@@ -57,7 +57,17 @@ module.exports = {
         guild => guild.id == interaction.guildID
       )
 
-      interaction.createMessage('Coleto')
+      const balls = user.balls + 1
+
+      interaction.createMessage({
+        embed: {
+          description: `Colocando seu par de luvas mais quentes, você juntou um pouco de neve e começou a moldar algumas bolas de neve. Agora você tem **${balls}** delas - deixe-os voar!`,
+          color: 0x5865F2,
+          image: {
+            url: 'https://cdn.discordapp.com/attachments/746119086702067844/930572369989357608/throw.png'
+          }
+        }
+      })
     }
   }
 }
