@@ -7,15 +7,16 @@ const client = Eris(process.env['TOKEN'], {
 
 client.connect()
 
+const DEV_GUILD = '672933215836569610'
 
 client.once('ready', async () => {
   const commands = require('./commands')
-
   const commandValues = Object.values(commands)
 
-  commandValues.forEach(async (command, i) => {
+  for await (const command of commandValues) {
+    const i = commandValues.indexOf(command)
     if (process.argv.includes('--dev-guild')) {
-      await client.createGuildCommand('672933215836569610', command).then(() => {
+      await client.createGuildCommand(DEV_GUILD, command).then(() => {
         console.log(`Command ${command.name} created!`)
       })
     } else {
@@ -23,7 +24,7 @@ client.once('ready', async () => {
         console.log(`Global Command ${command.name} created!`)
       })
     }
+  }
 
-    if (i === commandValues.length - 1) process.exit()
-  })
+  process.exit()
 })
