@@ -14,7 +14,6 @@ client.once('ready', async () => {
   const commandValues = Object.values(commands)
 
   for await (const command of commandValues) {
-    const i = commandValues.indexOf(command)
     if (process.argv.includes('--dev-guild')) {
       await client.createGuildCommand(DEV_GUILD, command).then(() => {
         console.log(`Command ${command.name} created!`)
